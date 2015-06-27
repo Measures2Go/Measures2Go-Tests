@@ -1,0 +1,33 @@
+---
+---
+[
+{% for post in site.posts %}
+  {
+    "name": "{{post.title}}",
+    "id": "{{post.id}}",
+    "categories": [
+      {% for p in post.category %}
+      "{{p}}"{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    "content": [
+      {% for t in post.tests %}
+      {
+        "name": "{{t.title  | replace: '"', '\"' }}",
+        "instructions": "{{t.instructions | replace: '"', '\"' }}",
+        "options": [
+          {% for o in t.options %}
+          {
+            "title": "{{o.title | replace: '"', '\"' }}",
+            "value": {{o.value}}
+          }
+          {% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+      {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+{% endfor %}
+]
