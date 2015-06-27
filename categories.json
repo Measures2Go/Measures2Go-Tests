@@ -1,0 +1,23 @@
+---
+---
+[
+{% for category in site.categories %}
+  {
+    "name": "{{category | first | capitalize }}",
+    "tests": [
+      {% for posts in category %}
+        {% for post in posts %}
+          {% unless post.id == null %}
+          {
+            "name": "{{post.name}}",
+            "id": "{{post.id}}"
+          }
+          {% endunless %}
+          {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      {% endfor %}
+    ]
+  }
+  {% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

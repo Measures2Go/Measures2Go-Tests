@@ -1,6 +1,6 @@
 ---
 name: Dynamic Gait Index
-category: ["Balance Tests"]
+category: ["Balance"]
 tests:
   - title: "Gait level surface"
     instructions: "Walk at your normal speed form here to the next mark (20 feet)."
