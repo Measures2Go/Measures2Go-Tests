@@ -1,0 +1,161 @@
+---
+name: Tinetti Performance Oriented Mobility Assessment
+category: ["Balance"]
+tests:
+  - title: "Sitting Balance"
+    instructions: "Subject is seated in hard, armless chair. The following maneuvers are tested. "
+    options:
+      - title: "Leans or slides in chair "
+        value: 0
+      - title: "Steady, safe "
+        value: 1
+  - title: "Arises"
+    instructions: "Subject is seated in hard, armless chair. The following maneuvers are tested.  "
+    options:
+      - title: "Unable without help "
+        value: 0
+      - title: "Able, uses arms to help "
+        value: 1
+      - title: "Able without using arms "
+        value: 2
+  - title: "Attempts to arise"
+    instructions: "Subject is seated in hard, armless chair. The following maneuvers are tested. "
+    options:
+      - title: "(0) Unable without help "
+        value: 0
+      - title: "(1) Able, requires >1 attempt "
+        value: 1
+      - title: "(2) Able to rise, 1 attempt "
+        value: 2
+  - title: "Immediate standing balance (first 5 seconds) "
+    instructions: ""
+    options:
+      - title: "Unsteady (swaggers, moves feet, trunk sway) "
+        value: 0
+      - title: "Steady but uses walker or other support "
+        value: 1
+      - title: "Steady without walker or other support  "
+        value: 2
+  - title: "Standing Balance"
+    instructions: ""
+    options:
+      - title: "Unsteady "
+        value: 0
+      - title: "Steady but wide stance (medial heels >4 inches apart) and uses cane or other support "
+        value: 1
+      - title: "Narrow stance without support "
+        value: 2
+  - title: "Nudged"
+    instructions: "Subject at max position with feet as close together as possible, examiner pushes lightly on subject's sternum with palm of hand 3 times "
+    options:
+      - title: "Begins to fall "
+        value: 0
+      - title: "Staggers, grabs, catches self "
+        value: 1
+      - title: "Steady  "
+        value: 2
+  - title: "Eyes closed"
+    instructions: "At maximum position with feet as close together as possible "
+    options:
+      - title: "Unsteady "
+        value: 0
+      - title: "Steady "
+        value: 1
+  - title: "Turning 360 degrees"
+    instructions: ""
+    options:
+      - title: "Discontinuous steps "
+        value: 0
+      - title: "Continuous steps "
+        value: 1
+  - title: "Turning 360 degrees"
+    instructions: ""
+    options:
+      - title: "Unsteady (grabs, swaggers) "
+        value: 0
+      - title: "Steady "
+        value: 1
+  - title: "Sitting Down"
+    instructions: "To hard, armless chair"
+    options:
+      - title: "Unsafe (misjudged distance, falls into chair)"
+        value: 0
+      - title: "Uses arms or not a smooth motion"
+        value: 1
+      - title: "Safe, smooth motion "
+        value: 2
+  - title: "Initiation of gait (immediately or after told to 'go'"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Any hesitancy or multiple attempts to start "
+        value: 0
+      - title: "No hesitancy "
+        value: 1
+  - title: "Right step length"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Right swing foot does not pass left stance foot with step "
+        value: 0
+      - title: "Right foot passes left stance foot "
+        value: 1
+  - title: "Right step height"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Right foot does not clear floor completely with step "
+        value: 0
+      - title: "Right foot completely clears floor"
+        value: 1
+  - title: "Left step length"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Left swing foot does not pass right stance foot with step "
+        value: 0
+      - title: "Left foot passes right stance foot "
+        value: 1
+  - title: "Left step height"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Left foot does not clear floor completely with step "
+        value: 0
+      - title: "Left foot completely clears floor"
+        value: 1
+  - title: "Step symmetry"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Right and left step length not equal (estimate) "
+        value: 0
+      - title: "Right and left step appear equal "
+        value: 1
+  - title: "Step continuity"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Stopping or discontinuity between steps "
+        value: 0
+      - title: "Steps appear continuous "
+        value: 1
+  - title: "Path"
+    instructions: "Estimate deviation in relation to floor tiles, 12-inch diameter; observe excursion of 1 foot over about 10 feet of the course). "
+    options:
+      - title: "Marked deviation "
+        value: 0
+      - title: "Mild/moderate deviation or uses walking aid "
+        value: 1
+      - title: "Straight without walking aid "
+        value: 2
+  - title: "Trunk"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Marked sway or uses walking aid "
+        value: 0
+      - title: "(1) No sway but flexion of knees or back, or spreads arms out while walking "
+        value: 1
+      - title: "No sway, no flexion, no use of arms, and no use of walking aid  "
+        value: 2
+  - title: "Walking Stance"
+    instructions: "Subject stands with examiner, walks down hallway or across the room, first at \"usual\" pace, then back at \"rapid, but safe\" pace (using usual walking aids). "
+    options:
+      - title: "Heels apart "
+        value: 0
+      - title: "Heels almost touching while walking "
+        value: 1
+---
