@@ -6,7 +6,7 @@
     "name": "{{category | first | capitalize }}",
     "tests": [
       {% for posts in category %}
-        {% for post in posts %}
+        {% for post in posts reversed %}
           {% unless post.id == null %}
           {
             "name": "{{post.name}}",
