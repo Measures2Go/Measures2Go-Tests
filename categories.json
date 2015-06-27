@@ -10,7 +10,7 @@
           {% unless post.id == null %}
           {
             "name": "{{post.name}}",
-            "id": "{{post.id}}"
+            "id": "{{post.id | split: '/' | last }}"
           }
           {% endunless %}
           {% unless forloop.last %},{% endunless %}

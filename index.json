@@ -4,7 +4,7 @@
 {% for post in site.posts %}
   {
     "name": "{{post.title}}",
-    "id": "{{post.id}}",
+    "id": "{{post.id | split: '/' | last }}",
     "categories": [
       {% for p in post.category %}
       "{{p}}"{% unless forloop.last %},{% endunless %}
