@@ -184,4 +184,11 @@ tests:
         value: 1
       - title: "unable to try of needs assist to prevent fall"
         value: 0
+results:
+  - eval: "x <= 20"
+    result: "High fall risk"
+  - eval: "x >= 21 && x <= 40"
+    result: "Medium fall risk"
+  - eval: "x >= 41"
+    result: "Low fall risk"
 ---
