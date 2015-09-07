@@ -27,6 +27,15 @@
       }
       {% unless forloop.last %},{% endunless %}
       {% endfor %}
+    ],
+    "results": [
+      {% for o in post.results %}
+      {
+        "eval": "{{o.eval}}",
+        "result": "{{o.result}}"
+      }
+      {% unless forloop.last %},{% endunless %}
+      {% endfor %}
     ]
   }{% unless forloop.last %},{% endunless %}
 {% endfor %}
