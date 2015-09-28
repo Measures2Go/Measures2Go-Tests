@@ -2,28 +2,6 @@
 name: Dynamic Gait Index
 category: ["Balance"]
 tests:
-  - title: "Change in gait speed"
-    instructions: "Begin walking at your normal pace (for 5 feet) when I tell you \"go,\" walk as fast as you can (for 5 feet). When I tell you \"slow,\" walk as slowly as you can (for 5 feet). "
-    options:
-      - title: "Normal: Able to smoothly change walking speed without loss of balance or gait deviation. Shows a significant difference in walking speeds between normal, fast and slow speeds. "
-        value: 3
-      - title: "Mild Impairment: Is able to change speed but demonstrates mild gait deviations, or not gait deviations but unable to achieve a significant change in velocity, or uses an assistive device. "
-        value: 2
-      - title: "Moderate Impairment: Makes only minor adjustments to walking speed, or accomplishes a change in speed with significant gait deviations, or changes speed but has significant gait deviations, or changes speed but loses balance but is able to recover and continue walking.  "
-        value: 1
-      - title: "Severe Impairment: Cannot change speeds, or loses balance and has to reach for wall or be caught. "
-        value: 0
-  - title: "Gait with horizontal head turns"
-    instructions: "Begin walking at your normal pace. When I tell you to \"look right,\" keep walking straight, but turn your head to the right. Keep looking to the right until I tell you, \"look left,\" then keep walking straight and turn your head to the left. Keep your head to the left until I tell you \"look straight,\" then keep walking straight, but return your head to the center. "
-    options:
-      - title: "Normal: Performs head turns smoothly with no change in gait. "
-        value: 3
-      - title: "Mild Impairment: Performs head turns smoothly with slight change in gait velocity, i.e. minor disruption to smooth gait path or uses walking aid. "
-        value: 2
-      - title: "Moderate Impairment: Performs head turns with moderate change in gait velocity, slows down, staggers but recovers, can continue to walk. "
-        value: 1
-      - title: "Severe Impairment: Performs task with severe disruption of gait, i.e. staggers outside 15 inch path, loses balance, stops, reaches for wall.  "
-        value: 0
   - title: "Gait with vertical head turns"
     instructions: "Begin walking at your normal pace. When I tell you to \"look up,\" keep walking straight, but tip your head up. Keep looking up until I tell you, \"look down,\" then keep walking straight and tip your head down. Keep your head down until I tell you \"look straight,\" then keep walking straight, but return your head to the center. "
     options:
@@ -80,12 +58,33 @@ tests:
       - title: "Severe Impairment: Cannot do safely.  "
         value: 0
 ---
-<div class="list card">
+<div class="list card" ng-init='i = 0'>
   <div class="item item-divider item-text-wrap">
     <b>Gait level surface:</b> Walk at your normal speed form here to the next mark (20 feet).
   </div>
-  <ion-radio-fix class="item item-radio" ng-model="values[0]" ng-value="3" name="group-0">Normal: Walks 20 feet, no assistive devices, good speed, no evidence for imbalance, normal gait pattern.</ion-radio-fix>
-  <ion-radio-fix class="item item-radio" ng-model="values[0]" ng-value="2" name="group-0">Mild Impairment: Walks 20 feet, uses assistive devices, slower speed, mild gait deviations.</ion-radio-fix>
-  <ion-radio-fix class="item item-radio" ng-model="values[0]" ng-value="1" name="group-0">Moderate Impairment: Walks 20 feet, slow speed, abnormal gait pattern, evidence for imbalance.</ion-radio-fix>
-  <ion-radio-fix class="item item-radio" ng-model="values[0]" ng-value="0" name="group-0">Severe Impairment: Cannot walk 20 feet without assistance, severe gait deviations or imbalance.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="3" name="group-{{i}}">Normal: Walks 20 feet, no assistive devices, good speed, no evidence for imbalance, normal gait pattern.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="2" name="group-{{i}}">Mild Impairment: Walks 20 feet, uses assistive devices, slower speed, mild gait deviations.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="1" name="group-{{i}}">Moderate Impairment: Walks 20 feet, slow speed, abnormal gait pattern, evidence for imbalance.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="0" name="group-{{i}}">Severe Impairment: Cannot walk 20 feet without assistance, severe gait deviations or imbalance.</ion-radio-fix>
 </div>
+
+<div class="list card" ng-init='i = 1'>
+  <div class="item item-divider item-text-wrap">
+    <b>Change in gait speed:</b> Begin walking at your normal pace (for 5 feet) when I tell you "go," walk as fast as you can (for 5 feet). When I tell you "slow," walk as slowly as you can (for 5 feet).
+  </div>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="3" name="group-{{i}}">Normal: Able to smoothly change walking speed without loss of balance or gait deviation. Shows a significant difference in walking speeds between normal, fast and slow speeds.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="2" name="group-{{i}}">Mild Impairment: Is able to change speed but demonstrates mild gait deviations, or not gait deviations but unable to achieve a significant change in velocity, or uses an assistive device.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="1" name="group-{{i}}">Moderate Impairment: Makes only minor adjustments to walking speed, or accomplishes a change in speed with significant gait deviations, or changes speed but has significant gait deviations, or changes speed but loses balance but is able to recover and continue walking.</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="0" name="group-{{i}}">Severe Impairment: Cannot change speeds, or loses balance and has to reach for wall or be caught.</ion-radio-fix>
+</div>
+
+{% for t in tests %}
+<div class="list card" ng-init='i = {{forloop.index}}'>
+  <div class="item item-divider item-text-wrap">
+    <b>{{t.title}}:</b> {{t.instructions}}
+  </div>
+  {% for o in t.options %}
+  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="{{o.value}}" name="group-{{i}}">{{o.title}}</ion-radio-fix>
+  {% endfor %}
+</div>
+{% endfor %}
