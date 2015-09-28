@@ -1,6 +1,7 @@
 ---
-name: Functional Gait Analysis
+title: Functional Gait Analysis
 category: ["Balance"]
+tags: ['Measure']
 tests:
   - title: "Gait Level Surface"
     instructions: "Walk at your normal speed from here to the next mark (6 m [20 ft]). "
@@ -113,3 +114,14 @@ tests:
       - title: "Severe impairment-Cannot do safely. "
         value: 0
 ---
+{% for t in page.tests %}
+{% assign idx = forloop.index %}
+<div class="list card">
+  <div class="item item-divider item-text-wrap">
+    <b>{{t.title}}:</b> {{t.instructions}}
+  </div>
+  {% for o in t.options %}
+  <ion-radio-fix class="item item-radio" ng-model="values[{{idx}}]" ng-value="{{o.value}}" name="group-{{idx}}">{{o.title}}</ion-radio-fix>
+  {% endfor %}
+</div>
+{% endfor %}
