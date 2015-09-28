@@ -185,13 +185,6 @@ tests:
         value: 1
       - title: "unable to try of needs assist to prevent fall"
         value: 0
-results:
-  - eval: "x <= 20"
-    result: "High fall risk"
-  - eval: "x >= 21 && x <= 40"
-    result: "Medium fall risk"
-  - eval: "x >= 41"
-    result: "Low fall risk"
 ---
 {% for t in page.tests %}
 {% assign idx = forloop.index %}
@@ -204,3 +197,29 @@ results:
   {% endfor %}
 </div>
 {% endfor %}
+
+<div class="list card" >
+  <div class="item item-divider">Summary</div>
+  <div class="item item-text-wrap">
+   Total score: {{totalValue()}}
+
+   <br />
+   Evaluation:
+   <span ng-show="totalValue() <= 20">High fall risk</span>
+   <span ng-show="totalValue() >= 21 && totalValue() <= 40">Medium fall risk</span>
+   <span ng-show="totalValue() >= 41">Low fall risk</span>
+
+   <br />
+   % Impaired: {{totalValue() / 56}}
+
+   <br />
+   G Code:
+   <span ng-show="totalValue() == 56">CH</span>
+   <span ng-show="totalValue() >= 45 && totalValue() < 56">CI</span>
+   <span ng-show="totalValue() >= 34 && totalValue() < 45">CJ</span>
+   <span ng-show="totalValue() >= 22 && totalValue() < 33">CK</span>
+   <span ng-show="totalValue() >= 11 && totalValue() < 22">CL</span>
+   <span ng-show="totalValue() >= 1 && totalValue() < 11">CM</span>
+   <span ng-show="totalValue() == 0">CN</span>
+  </div>
+</div>
