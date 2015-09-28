@@ -7,7 +7,7 @@
     "name": "{{p.title }}",
     "slug": "{{p.name | split: '.' | first}}",
     "categories": [{% for c in p.category %}"{{c}}"{% unless forloop.last %},{% endunless %}{% endfor %}]
-  },
+  }{% unless forloop.last %},{% endunless %}
   {% endif %}
 {% endfor %}
 ]
