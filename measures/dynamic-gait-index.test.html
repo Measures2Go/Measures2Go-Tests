@@ -78,7 +78,7 @@ tests:
   <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="0" name="group-{{i}}">Severe Impairment: Cannot change speeds, or loses balance and has to reach for wall or be caught.</ion-radio-fix>
 </div>
 
-{% for t in tests %}
+{% for t in page.tests %}
 <div class="list card" ng-init='i = {{forloop.index}}'>
   <div class="item item-divider item-text-wrap">
     <b>{{t.title}}:</b> {{t.instructions}}
