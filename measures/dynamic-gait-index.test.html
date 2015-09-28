@@ -92,12 +92,13 @@ tests:
         value: 0
 ---
 {% for t in page.tests %}
-<div class="list card" ng-init='i = {{forloop.index}}'>
+{% assign idx = forloop.index %}
+<div class="list card">
   <div class="item item-divider item-text-wrap">
     <b>{{t.title}}:</b> {{t.instructions}}
   </div>
   {% for o in t.options %}
-  <ion-radio-fix class="item item-radio" ng-model="values[i]" ng-value="{{o.value}}" name="group-{{i}}">{{o.title}}</ion-radio-fix>
+  <ion-radio-fix class="item item-radio" ng-model="values[{{idx}}]" ng-value="{{o.value}}" name="group-{{idx}}">{{o.title}}</ion-radio-fix>
   {% endfor %}
 </div>
 {% endfor %}
