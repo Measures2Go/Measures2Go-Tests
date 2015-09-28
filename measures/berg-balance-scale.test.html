@@ -211,7 +211,7 @@ tests:
    <span ng-show="totalValue() >= 41">Low fall risk</span>
 
    <br />
-   % Impaired: {{(totalValue() / 56) * 100 | number}}
+   % Impaired: {{100 - ((totalValue() / 56) * 100) | number}}
 
    <br />
    G Code:
