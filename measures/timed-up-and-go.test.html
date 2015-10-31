@@ -1,0 +1,67 @@
+---
+title: Timed Up And Go
+category: ["Balance"]
+tags: ['Measure']
+---
+{% raw %}
+<script type="text/javascript">
+angular.module('measures2go').controllerProvider.register('TimedUpAndGoCtrl', function($scope, $interval) {
+
+  $scope.tests = [];
+  for (var i = 0; i < 5; i++) {
+    $scope.tests.push(i);
+  }
+
+  $scope.timer = [];
+  $scope.startTimer = function(i) {
+    $scope.values[i].time = 0;
+    $scope.values[i].date = new Date();
+    $scope.timer[i].running = true;
+    $scope.timer[i].timer = $interval(function() {
+      $scope.values[i].time++;
+    }, 1000);
+  }
+  $scope.stopTimer = function(i) {
+    $scope.timer[i].running = false;
+    $interval.cancel($scope.timer[i].timer);
+  }
+  $scope.getTime = function(t) {
+    var minutes = '0' + Math.floor(t / 60);
+    var seconds = '0' + (t % 60);
+
+    minutes = minutes.substring(minutes.length - 2);
+    seconds = seconds.substring(seconds.length - 2);
+    return '00:' + minutes + ':' + seconds;
+  }
+
+  $scope.$on("$destroy", function() {
+    for (var i = 0; i < $scope.timer.length; i++) {
+      $interval.cancel($scope.timer[i].timer);
+    }
+  })
+});
+</script>
+
+<div ng-controller="TimedUpAndGoCtrl">
+  <div ng-repeat="t in tests">
+    <div class="list card" ng-init="timer[t] = { running: false }; values[t] = { time: 0, date: 'Not Started' };">
+      <div class="item item-divider item-text-wrap">
+        <b>TUG Time #{{t + 1}}</b>
+      </div>
+      <label class="item item-input">
+        <span class="input-label">Start Date</span>
+        <span>{{values[t].date | date : 'medium'}}</span>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Duration</span>
+        <span>{{getTime(values[t].time)}}</span>
+      </label>
+
+      <div class="item item-body">
+        <button class="button button-block button-balanced" ng-click="startTimer(t)" ng-hide="timer[t].running">Start Timer</button>
+        <button class="button button-block button-assertive" ng-click="stopTimer(t)" ng-show="timer[t].running">Stop Timer</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endraw %}
